@@ -234,3 +234,78 @@
   `erlc` best fren
 
   you can pass 
+
+# Functions
+- Pattern matching is awesome!
+
+  ```erlang
+  greet(male, Name) ->
+      io:format("Hello, Mr. ~s!", [Name]);
+  greet(female, Name) ->
+      io:format("Hello, Mrs. ~s!", [Name]);
+  greet(_, Name) ->
+      io:format("Hello, ~s!", [Name]).
+  ```
+
+  however, notice how function clauses are separated with a `;` but the last
+  one ends with a `.`.
+
+  ```
+  function(X) ->
+      Expression;
+  function(Y) ->
+      Expression;
+  function(_) ->
+      Expression.
+  ```
+
+  - In arguments, you can use the cons operator:
+    ```erlang
+    head([H|_]) -> H.
+    ```
+
+  - Some more stuff about arguments... uhhhh
+    ```erlang
+    valid_time({Date = {Y,M,D}, Time = {H,Min,S}}) ->
+        io:format("The Date tuple (~p) says today is: ~p/~p/~p,~n",[Date,Y,M,D]),
+        io:format("The time tuple (~p) indicates: ~p:~p:~p.~n", [Time,H,Min,S]);
+    valid_time(_) ->
+        io:format("Stop feeding me wrong data!~n").
+
+    ```
+    ```
+    functions:valid_time({{2011,09,06},{09,04,43}}).
+    ```
+
+# Guards
+omg this is awesome
+
+-
+  ```erlang
+  old_enough(X) when X >= 16 -> true;
+  old_enough(_) -> false.
+  ```
+
+- and you can even add more!
+  ```erlang
+  right_age(X) when X >= 16, X =< 104 ->
+      true;
+  right_age(_) ->
+      false.
+  ```
+
+- OR!!
+  ```erlang
+  wrong_age(X) when X < 16; X > 104 ->
+      true;
+  wrong_age(_) ->
+      false.
+  ```
+
+# Standard
+- When formatting a string, the escape character is `~`, it can be used for
+  formatting purposes, or like `~n` for newlines. Another one is `~p` which
+  will prettify output (I think)
+  ```erlang
+  io:format("Hello, Mr. ~s!", ["Joe"]);
+  ```
