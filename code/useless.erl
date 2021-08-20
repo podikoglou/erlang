@@ -1,5 +1,4 @@
 -module(useless).
-
 -export([add/2, multiply/2, divide/2, sum/1]).
 
 %% Adds two numbers A and B

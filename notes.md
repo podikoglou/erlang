@@ -1,4 +1,4 @@
-# Mutability & Initial Confusion:
+# Mutability & Initial Confusion
 - > Erlang has this very pragmatic approach with functional programming: obey
   its purest principles (referential transparency, avoiding mutable data, etc),
   but break away from them when real world problems pop up.
@@ -19,18 +19,18 @@
   that you can still assign values to a variable as long as they're the same it
   already has.
 
-# REPL:
+# REPL
 - ^G (Ctrl G) is actually different than ^C (Ctrl C) and pretty powerful
 
-# General Syntax:
+# General Syntax
 - Expressions must end with a `.`!
 - Variables names must be capitalized!
 
-# Numbers:
+# Numbers
 - Use the syntax `Base#Number` to use different bases
 - Comparing numbers is as usual: `>`, `<`, `>=`, `=<`
 
-# Atoms:
+# Atoms
 - Atoms are strings whose values are themselves. They may be in quotes in which
   case any character is allowed. If they're not on quotes, they must be
   lowercase, have no spaces in them, and only some special characters are
@@ -44,7 +44,7 @@
   `bxor`, `case`, `catch`, `cond`, `div`, `end`, `fun`, `if`, `let`, `not`, `of`, `or`, `orelse`, `query`,
   `receive`, `rem`, `try`, `when`, `xor`.
 
-# Booleans:
+# Booleans
 - `true`, and `false`: they're atoms!
 - `not`, `or`, `and`, and `xor` operators.
 
@@ -65,7 +65,7 @@
   ```
   )
 
-# Tuples:
+# Tuples
 - They're just weird lists
 - No main type, a Tuple can hold values of different types
 - To get a value of a Tuple, apparently you have to know the length of the
@@ -103,7 +103,7 @@
   ** exception error: no match of right hand side value {centimeters,4}
   ```
 
-# Lists:
+# Lists
 - No main type
 - Classic syntax:
   ```
@@ -168,7 +168,7 @@
   list, these ones can't be fucked around with (using builtin erlang
   functions.)
 
-# List Comprehensions:
+# List Comprehensions
 - Just a notation that constructs a list from another list by filtering out
   elements and stuff.
 
@@ -230,7 +230,7 @@
   the thing after the comma is a condition that must be met for each element 
   for it to pass on the list
 
-# Compiling:
+# Compiling
   `erlc` best fren
 
   you can pass 
