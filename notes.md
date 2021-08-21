@@ -259,12 +259,12 @@
       Expression.
   ```
 
-  - In arguments, you can use the cons operator:
+- In arguments, you can use the cons operator:
     ```erlang
     head([H|_]) -> H.
     ```
 
-  - Some more stuff about arguments... uhhhh
+- Some more stuff about arguments... uhhhh
     ```erlang
     valid_time({Date = {Y,M,D}, Time = {H,Min,S}}) ->
         io:format("The Date tuple (~p) says today is: ~p/~p/~p,~n",[Date,Y,M,D]),
@@ -301,6 +301,58 @@ omg this is awesome
   wrong_age(_) ->
       false.
   ```
+
+# If Statements (Guard Patterns)
+
+- `;` acts as an `else` when returning
+  ```erlang
+  oh_god(N) ->
+      if N =:= 2 -> might_succeed;
+          true -> always_does
+      end.
+  ```
+
+-
+  ```erlang
+  help_me(Animal) ->
+      Talk = if Animal == cat  -> "meow";
+                Animal == beef -> "mooo";
+                Animal == dog  -> "bark";
+                Animal == tree -> "bark";
+                true -> "fgdadfgna"
+             end,
+      {Animal, "says " ++ Talk ++ "!"}.
+  ```
+note: this would be better with just pattern matching
+
+# Case ... of
+-
+  ```erlang
+  insert(X,[]) ->
+      [X];
+  insert(X,Set) ->
+      case lists:member(X,Set) of
+          true  -> Set;
+          false -> [X|Set]
+      end.
+  ```
+
+- a more advanced one:
+  ```erlang
+  beach(Temperature) ->
+      case Temperature of
+          {celsius, N} when N >= 20, N =< 45 ->
+              'favorable';
+          {kelvin, N} when N >= 293, N =< 318 ->
+              'scientifically favorable';
+          {fahrenheit, N} when N >= 68, N =< 113 ->
+              'favorable in the US';
+          _ ->
+              'avoid beach'
+      end.
+  ```
+  where the first part inside the brackets extracts `{x, N}` from
+  `Temperature` and fails if the structure of the extraction doesn't match
 
 # Standard
 - When formatting a string, the escape character is `~`, it can be used for
